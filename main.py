@@ -1,11 +1,11 @@
-from front import *
+from front import create_front
 
 
 def main() -> None:
     try:
         create_front()
-    except Exception as e:
-        print(e)
+    except Exception as error:
+        print(error)
 
 
 if __name__ == '__main__':
