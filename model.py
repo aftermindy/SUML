@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, FunctionTransformer, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
 
 df = pd.read_csv('train.csv', delimiter=',', low_memory=False)
 df_test = pd.read_csv('test.csv', delimiter=',', low_memory=False)
@@ -42,9 +42,10 @@ transform = ColumnTransformer(
 )
 
 
-def split(dataFrame):
-    x_input = dataFrame[["customer_type", "type_of_travel", "class", "gender", "age", "flight_distance", "delay_sum", "survey_sum"]]
-    y_input = dataFrame['satisfaction']
+def split(data_frame):
+    x_input = data_frame[["customer_type", "type_of_travel", "class",
+                         "gender", "age", "flight_distance", "delay_sum", "survey_sum"]]
+    y_input = data_frame['satisfaction']
     return x_input, y_input
 
 

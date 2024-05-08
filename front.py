@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from predict import *
 import joblib
+from predict import load_results, predict
 
 
 def create_front():
@@ -14,16 +14,22 @@ def create_front():
         st.session_state['result_visible'] = False
 
     if st.session_state['form_visible']:
-        st.session_state['customer_type'] = st.selectbox("Customer type:",
-                                                         options=["Loyal Customer", "disloyal Customer"])
-        st.session_state['type_of_travel'] = st.radio("Type of travel:", options=["Business travel", "Personal Travel"],
-                                                      horizontal=True)
-        st.session_state['class'] = st.radio("Class:", options=["Business", "Eco", "Eco Plus"], horizontal=True)
-        st.session_state['gender'] = st.radio("Gender:", options=["Male", "Female"], horizontal=True)
+        st.session_state['customer_type'] = (
+            st.selectbox("Customer type:", options=["Loyal Customer", "disloyal Customer"]))
+        st.session_state['type_of_travel'] = (
+            st.radio("Type of travel:", options=["Business travel", "Personal Travel"],
+                                                      horizontal=True))
+        st.session_state['class'] = (
+            st.radio("Class:",options=["Business", "Eco", "Eco Plus"], horizontal=True))
+        st.session_state['gender'] = st.radio("Gender:", options=["Male", "Female"],
+                                              horizontal=True)
         st.session_state['age'] = st.slider("Age:", 5, 100, 30)
-        st.session_state['flight_distance'] = st.number_input("Flight distance (km):", min_value=0, max_value=15000)
-        st.session_state['delay_sum'] = st.number_input("Delay (minutes):", min_value=0, max_value=3000)
-        st.session_state['survey_sum'] = st.number_input("Survey sum:", min_value=0, max_value=100, value=50)
+        st.session_state['flight_distance'] = (
+            st.number_input("Flight distance (km):", min_value=0, max_value=15000))
+        st.session_state['delay_sum'] = (
+            st.number_input("Delay (minutes):", min_value=0, max_value=3000))
+        st.session_state['survey_sum'] = (
+            st.number_input("Survey sum:", min_value=0, max_value=100, value=50))
 
         st.button("Send!", on_click=load_results)
 

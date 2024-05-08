@@ -1,6 +1,6 @@
-import streamlit as st
 import time
 import joblib
+import streamlit as st
 
 
 def load_results():
@@ -19,8 +19,8 @@ def predict(file, query):
     model = joblib.load(file)
     result = model.predict(query)[0]
     if result == "satisfied":
-        st.markdown(f"<div align='center'><b>Result of prediction: <span style='color: green;'>"
-                    f"Satisfied</span></b></div>", unsafe_allow_html=True)
+        st.markdown("<div align='center'><b>Result of prediction: <span style='color: green;'>"
+                    "Satisfied</span></b></div>", unsafe_allow_html=True)
     else:
-        st.markdown(f"<div align='center'><b>Result of prediction: <span style='color: yellow;'>"
-                    f"Neutral or Dissatisfied</span></b></div>", unsafe_allow_html=True)
+        st.markdown("<div align='center'><b>Result of prediction: <span style='color: yellow;'>"
+                    "Neutral or Dissatisfied</span></b></div>", unsafe_allow_html=True)
