@@ -26,5 +26,5 @@ def predict(file, query):
                     "Neutral or Dissatisfied</span></b></div>", unsafe_allow_html=True)
 
     probability = round(model.predict_proba(query).max() * 100, 2)
-    st.markdown(f"Predicted probability: {probability}%</div>", unsafe_allow_html=True)
+    st.markdown(f"<div align='center'><b>Predicted probability: {probability}%</b></div>", unsafe_allow_html=True)
 
