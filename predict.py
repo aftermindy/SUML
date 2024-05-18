@@ -22,7 +22,7 @@ def predict(file, query):
         st.markdown("<div align='center'><b>Result of prediction: <span style='color: green;'>"
                     "Satisfied</span></b></div>", unsafe_allow_html=True)
     else:
-        st.markdown("<div align='center'><b>Result of prediction: <span style='color: yellow;'>"
+        st.markdown("<div align='center'><b>Result of prediction: <span style='color: orange;'>"
                     "Neutral or Dissatisfied</span></b></div>", unsafe_allow_html=True)
 
     probability = round(model.predict_proba(query).max() * 100, 2)
